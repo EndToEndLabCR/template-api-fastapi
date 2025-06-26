@@ -1,0 +1,43 @@
+services:
+
+  app:
+    container_name: base_fastapi_project_app
+    build:
+      context: ./base-fastapi-project
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres:17
+    container_name: postgres_database_service
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_DB_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_DB_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB_NAME}
+      POSTGRES_HOST: ${POSTGRES_DB_HOST}
+    env_file:
+      - ./.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  flyway:
+    image: flyway/flyway:11
+    container_name: flyway_service
+    command: -url=jdbc:postgresql://postgres:${POSTGRES_DB_PORT}/${POSTGRES_DB_NAME} -locations=filesystem:/flyway/sql -schemas=public -user=${POSTGRES_DB_USERNAME} -password=${POSTGRES_DB_PASSWORD} -connectRetries=60 migrate
+    volumes:
+      - ./flyway/sql:/flyway/sql
+    env_file:
+      - ./.env
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:

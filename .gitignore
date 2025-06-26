@@ -1,0 +1,4 @@
+../database-be/.idea/
+venv
+.env
+.idea/
