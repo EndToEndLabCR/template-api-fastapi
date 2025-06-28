@@ -3,7 +3,7 @@ services:
   app:
     container_name: template_api_fastapi_app
     build:
-      context: ./template-api-fastapi
+      context: .
       dockerfile: Dockerfile
     ports:
       - 8080:8080
