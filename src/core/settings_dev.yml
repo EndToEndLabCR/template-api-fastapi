@@ -1,0 +1,11 @@
+app:
+  name: "Template API FastApi"
+  debug: true
+
+postgres:
+  username: !ENV ${POSTGRES_DB_USERNAME}
+  password: !ENV ${POSTGRES_DB_PASSWORD}
+  host: !ENV ${POSTGRES_DB_HOST}
+  port: !ENV ${POSTGRES_DB_PORT}
+  dbname: !ENV ${POSTGRES_DB_NAME}
+  echo: false #SQLAlchemy echo logs
