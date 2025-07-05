@@ -4,9 +4,9 @@ A lightweight FastAPI starter kit with PostgreSQL integration, Flyway migrations
 ## 📑 Table of Contents
 
 - [✨ Features](#-features)
-- [🛠️ Technologies Used](#-technologies-used)
+- [🛠 Technologies Used](#-technologies-used)
 - [🚀 Getting Started](#-getting-started)
-  - [⚙️ Prerequisites](#-prerequisites)
+  - [🧰 Prerequisites](#-prerequisites)
   - [💾 Installation](#-installation)
   - [🏃 Running the App](#-running-the-app)
 - [👾 Usage](#-usage)
@@ -21,7 +21,7 @@ A lightweight FastAPI starter kit with PostgreSQL integration, Flyway migrations
 - RESTful API (FastAPI)
 - Flyway for Schema Versioning
 
-## 🛠️ Technologies Used
+## 🛠 Technologies Used
 
 - [Python](https://www.python.org)
 - [FastAPI](https://fastapi.tiangolo.com)
@@ -34,7 +34,7 @@ A lightweight FastAPI starter kit with PostgreSQL integration, Flyway migrations
 
 ## 🚀 Getting Started
 
-### ⚙️ Prerequisites
+### 🧰 Prerequisites
 
 All core services and dependencies are containerized, so you only need the following installed on your local machine to run the project:
 
